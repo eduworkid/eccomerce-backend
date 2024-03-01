@@ -29,7 +29,7 @@ function decodeToken() {
     };
   }
   function verifyToken(req, res, next) {
-    const token = req.headers['authorization'];
+    const token = getToken(req);
 
     if (!token || !token.startsWith('Bearer ')) {
         return res.status(401).json({ message: 'No token provided' });
